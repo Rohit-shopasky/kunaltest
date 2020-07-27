@@ -30,7 +30,7 @@ var port = process.env.PORT || 3001;
 app.use(cors());
 mongoose
   .connect(
-    "mongodb+srv://root:root@cluster0-hg20y.mongodb.net/test?retryWrites=true&w=majority"
+    "mongodb://localhost:27017/form"
   )
   .then(() => {
     app.listen(port, () => {

@@ -1,4 +1,5 @@
 const userModel = require("./model");
+const {userActivityModel} = userModel;
 const jwt = require('jsonwebtoken');
 const jwtSecret = "@test@";
 const moment = require("moment");
@@ -33,6 +34,21 @@ const User = {
           res.json({status:false,data:[],msg:"Something went wrong!"});
           
         }
+      },
+
+      timeSpent:async(req,res)=>{
+         try {
+
+          let {timeData} = req.body;
+          console.log("timeData",timeData);
+          let d = await userActivityModel.collection.insert(timeData);
+
+          res.json( {status:true,msg:"inserted"})
+           
+         } catch (error) {
+           console.log("error",error);
+           return {status:false,msg:error}
+         }
       },
 
 

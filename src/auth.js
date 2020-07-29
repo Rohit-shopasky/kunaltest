@@ -1,4 +1,5 @@
-const userModel = require("./model");
+const Model = require("./model");
+const {userModel}  = Model;
 const jwt = require('jsonwebtoken');
 const jwtSecret = "@test@";
 const moment = require("moment");
@@ -44,7 +45,7 @@ const Auth = {
               console.log("came");
                let token = jwt.sign({ val:email},jwtSecret);
                let result = await userModel.findOneAndUpdate({email:email},{$set:{token:token,loginAt:new Date()}});
-               res.json({status:true,msg:"ok",token:token,msg:"",firstName:result.firstName,lastName:result.lastName});
+               res.json({status:true,msg:"ok",token:token,msg:"",firstName:result.firstName,lastName:result.lastName,userId:result._id});
             }
             else
               res.json ({status:false,msg:"Email or password is incorrect!",token:""})

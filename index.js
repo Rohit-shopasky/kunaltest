@@ -12,12 +12,12 @@ const userData = require("./login_details.json");
 
 
 // userData.map(async(item)=>{
-//   let userRef = userModel();
-//             userRef.firstName = item.FIRSTNAME;
-//             userRef.lastName = item.LASTNAME;
-//             userRef.email = item.EMAIL;
-//             userRef.password = item.PASSWORD;
-//             let result = await userModel.collection.insert(userRef);
+ //  let userRef = userModel();
+      //       userRef.firstName = item.FIRSTNAME;
+    //         userRef.lastName = item.LASTNAME;
+      //       userRef.email = item.EMAIL;
+    //         userRef.password = item.PASSWORD;
+  //           let result = await userModel.collection.insert(userRef);
 // })
 
 

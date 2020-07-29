@@ -15,4 +15,20 @@ const usersModel = new Schema(
   
 );
 
-module.exports = mongoose.model("users", usersModel);
+const userActivityModel = new Schema(
+  {
+    userId: { type: Schema.Types.ObjectId, ref: 'users' },
+    timeSpent: String,
+    pageId:{type:String,default:""},
+    userName:String,
+    createdAt:{type:Date,default:new Date()}
+  },
+  
+);
+
+const Schemas = {
+  userModel: mongoose.model('users', usersModel),
+  userActivityModel: mongoose.model('useracts', userActivityModel),
+}
+
+module.exports = Schemas;
